@@ -1,10 +1,12 @@
+`timescale 1ps/1ps
+
 import SECDED_ECC_pkg::*;
 
-module SECDED_Decoder(
+module SECDED_Decoder_seq(
     input logic clk,
     input logic rst_n,
     input logic [71:0] data_in,
-    output logic [63:0] data_out,
+    output logic [71:0] data_out,
     output logic error_detected,
     output logic single_error,
     output logic double_error
@@ -24,8 +26,6 @@ assign error_detected = |SYNDROME;
 assign single_error = ^SYNDROME & error_detected;
 assign double_error = ~^SYNDROME & error_detected;
 assign data_out = ECC_correction(BUFFER_DATA, SYNDROME);
-
-assign data_out = BUFFER_DATA;
 
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin

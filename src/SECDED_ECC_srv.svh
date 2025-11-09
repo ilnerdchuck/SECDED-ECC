@@ -1,3 +1,4 @@
+`timescale 1ps/1ps
 package SECDED_ECC_pkg;
 
 // This SECDED encoding process is based on the M. Y Hsiao second table 
@@ -160,8 +161,7 @@ package SECDED_ECC_pkg;
 function automatic [71:0] syndrome_to_err_vector(input logic [7:0] syndrome);
     logic [71:0] err_vector;
     begin
-        // Map syndrome to bit err_vector (0-71)
-        //TODO: Complete the mapping according to Hsiao's matrix
+        // Map syndrome to err_vector (0-71)
         case (syndrome)
             8'b00001011: err_vector = 72'h00_0000_0000_0000_0001;
             8'b00111011: err_vector = 72'h00_0000_0000_0000_0002;

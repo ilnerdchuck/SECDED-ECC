@@ -1,6 +1,7 @@
+`timescale 1ps/1ps
 import SECDED_ECC_pkg::*;
 
-module SECDED_Encoder(
+module SECDED_Encoder_seq(
     input logic clk,
     input logic rst_n,
     input logic [63:0] data_in,
@@ -31,7 +32,7 @@ assign data_out = BUFFER;
 // Sequential logic to compute parity bits and store data into buffer
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) 
-        BUFFER <= '0;
+        BUFFER <= 0;
     else begin
         BUFFER[63:0] <= data_in;
         // Calculate parity bits
