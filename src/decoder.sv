@@ -21,10 +21,9 @@ assign calculated_parity = mega_xor(data_in[63:0]);
 
 // Output assignments
 assign error_detected = |SYNDROME;
-//TODO: Implement single and double error distinction logic
-assign single_error = error_detected;
-assign double_error = error_detected;
-assign data_out = correct_data(BUFFER_DATA, SYNDROME);
+assign single_error = ^SYNDROME & error_detected;
+assign double_error = ~^SYNDROME & error_detected;
+assign data_out = ECC_correction(BUFFER_DATA, SYNDROME);
 
 assign data_out = BUFFER_DATA;
 
