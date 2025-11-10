@@ -58,7 +58,7 @@ This could be used in communications systems but maybe an hamming code (7,4)
 could be more useful, but it depends as always.  
 
 ### Sources:
-- [Communications Systems theory notes (Bachelor degree)](https://github.com/ilnerdchuck/CN-Appunti/blob/main/main.pdf)
+- [My Communications Systems theory notes (Bachelor degree)](https://github.com/ilnerdchuck/CN-Appunti/blob/main/main.pdf)
 
 - [M. Y. Hsiao](https://people.eecs.berkeley.edu/%7Eculler/cs252-s02/papers/hsiao70.pdf)
 
