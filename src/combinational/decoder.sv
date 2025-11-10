@@ -1,3 +1,10 @@
+//==============================================================================
+// File Name: decoder.sv
+// Author: Francesco Mignone - ilnerdchuck
+// Description: SECDED Decoder (Combinational) implementation
+// Created: 2025-11-9
+//==============================================================================
+
 `timescale 1ps/1ps
 
 import SECDED_ECC_pkg::*;

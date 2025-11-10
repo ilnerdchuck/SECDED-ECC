@@ -1,6 +1,10 @@
-// `include "encoder.sv"
-// `include "decoder.sv"
-// `include "./noise.sv"
+//==============================================================================
+// File Name: tb_seq.sv
+// Author: Francesco Mignone - ilnerdchuck
+// Description: SECDED Testbench (Sequential) implementation
+// Created: 2025-11-9
+//==============================================================================
+
 `timescale 1ps/1ps
 
 module tb_SECDED_ECC_seq;

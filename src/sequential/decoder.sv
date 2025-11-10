@@ -1,3 +1,10 @@
+//==============================================================================
+// File Name: decoder.sv
+// Author: Francesco Mignone - ilnerdchuck
+// Description: SECDED Decoder (Sequential) implementation
+// Created: 2025-11-9
+//==============================================================================
+
 `timescale 1ps/1ps
 
 import SECDED_ECC_pkg::*;
@@ -18,14 +25,15 @@ logic [7:0] SYNDROME;
 logic [7:0] received_parity;
 logic [7:0] calculated_parity;
 
+// Parity & syndrome section
 assign received_parity = data_in[71:64];
 assign calculated_parity = mega_xor(data_in[63:0]);
 
-// Output assignments
+// Error detection and correction
+assign data_out = ECC_correction(BUFFER_DATA, SYNDROME);
 assign error_detected = |SYNDROME;
 assign single_error = ^SYNDROME & error_detected;
 assign double_error = ~^SYNDROME & error_detected;
-assign data_out = ECC_correction(BUFFER_DATA, SYNDROME);
 
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
