@@ -29,7 +29,7 @@ module to add some bit flips to simulate a transmission
     - `make wave_comb`: opens gtkwave to analyze the combinatorial waveform
     - `make clean`: cleans the environment
 
-## Timing analysis
+## Structure and Timing analysis
 
 A timing constraint was set: the Encoder/Decoder must stay in 1 clock cycle. 
 This can be interpreted in two ways:
