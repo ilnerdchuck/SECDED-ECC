@@ -57,7 +57,7 @@ initial begin
     $display("Time %0t - LOG: Apply Reset",$time);
     rst_n = 1;
     enc_data_in = 0;
-    #(CLK_PERIOD*3) rst_n = 0;
+    #(CLK_PERIOD/2) rst_n = 0;
     repeat(2) @(posedge clk);
     rst_n = 1;
     $display("Time %0t - LOG: Release Reset",$time);

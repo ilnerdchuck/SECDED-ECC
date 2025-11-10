@@ -12,7 +12,7 @@ logic double_error;
 
 logic [63:0] enc_data_in;
 logic [71:0] enc_data_out;
-// logic [71:0] noisy_data_out;
+logic [71:0] noisy_data_out;
 logic [71:0] dec_data_out;
 
 // Instantiate Encoder
@@ -23,19 +23,16 @@ SECDED_Encoder_seq enc_DUT_seq(
     .data_out(enc_data_out)
 );
 
-// Instantiate Noise Module
-// Noise_Module noise_DUT(
-//     .clk(clk),
-//     .rst_n(rst_n),
-//     .data_in(enc_data_out),
-//     .data_out(noisy_data_out)
-// );
+noise noise_DUT(
+    .data_in(enc_data_out),
+    .data_out(noisy_data_out)
+);
 
 // Instantiate Decoder
 SECDED_Decoder_seq dec_DUT_seq(
     .clk(clk),
     .rst_n(rst_n),
-    .data_in(enc_data_out),
+    .data_in(noisy_data_out),
     .data_out(dec_data_out),
     .error_detected(error_detected),
     .single_error(single_error),
@@ -61,8 +58,8 @@ initial begin
     $display("Time %0t - LOG: Apply Reset",$time);
     rst_n = 1;
     enc_data_in = 0;
-    #(CLK_PERIOD*3) rst_n = 0;
-    repeat(2) @(posedge clk);
+    #(CLK_PERIOD/2) rst_n = 0;
+    repeat(2) @(posedge| clk);
     rst_n = 1;
     $display("Time %0t - LOG: Release Reset",$time);
     repeat(2) @(posedge clk);
