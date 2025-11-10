@@ -21,7 +21,7 @@ module to add some bit flips to simulate a transmission
     - `noise.sv`: module used to induce noise
     - `tb_seq.sv`: used to test the sequential RTL
     - `tb_comb.sv`: used to test the combinational RTL
-- ./Makefile: used to launch the simulation
+- `./Makefile`: used to launch the simulation
     - `make` or `make run`: builds all the simulations
     - `make run_seq`: runs the sequential simulation
     - `make run_comb`: runs the combinatorial simulation
