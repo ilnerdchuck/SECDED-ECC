@@ -1,3 +1,10 @@
+//==============================================================================
+// File Name: noise.sv
+// Author: Francesco Mignone - ilnerdchuck
+// Description: SECDED noise module
+// Created: 2025-11-9
+//==============================================================================
+
 `timescale 1ps/1ps
 
 module noise(

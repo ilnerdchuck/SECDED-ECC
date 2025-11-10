@@ -1,3 +1,10 @@
+//==============================================================================
+// File Name: SECDED_ECC_srv.svh
+// Author: Francesco Mignone - ilnerdchuck
+// Description: SECDED functions package
+// Created: 2025-11-9
+//==============================================================================
+
 `timescale 1ps/1ps
 package SECDED_ECC_pkg;
 
